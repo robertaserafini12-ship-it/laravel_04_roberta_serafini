@@ -6,40 +6,58 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public $articles = [
+    public $movies = [
         [
             'id' => 1,
-            'title' => 'Il Panda Gigante 🐼',
-            'content' => 'Il panda gigante passa fino a 12 ore al giorno a mangiare bambù. È un simbolo mondiale della conservazione della natura!',
+            'title' => 'Inception',
+            'director' => 'Christopher Nolan',
+            'genre' => 'Fantascienza',
+            'year' => 2010,
+            'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZ3SV5lXO9QQQg2ZnE0MoavFzwdEugCXG3N0Gv3Z6zA&s=10'
         ],
         [
             'id' => 2,
-            'title' => 'La Tigre del Bengala 🐯',
-            'content' => 'La tigre è uno dei felini più grandi e affascinanti del pianeta. Le sue strisce sono uniche, proprio come le nostre impronte digitali.',
+            'title' => 'Oppenheimer',
+            'director' => 'Christopher Nolan',
+            'genre' => 'Azione',
+            'year' => 2023,
+            'img' => 'https://m.media-amazon.com/images/I/51YU9Q90zEL._SL500_.jpg?format=auto&width=640&height=auto&quality=50' // <-- Link aggiunto qui
         ],
-        [
-            'id' => 3,
-            'title' => 'L\'Elefante Africano 🐘',
-            'content' => 'L\'elefante è il mammifero terrestre più grande della Terra. Hanno una memoria straordinaria e legami familiari fortissimi.',
-        ],
-    ];
 
-    public function homepage()
-    {
-        return view('welcome');
-    }
+        [
+            'id' =>3,
+            'title' => 'Il Cavaliere Oscuro',
+            'director' => 'Christopher Nolan',
+            'genre' => 'Azione',
+            'year' => 2008,
+            'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4PWKIqnzzTmaxl7hIS5VONIQ1zH2HdckAPnZQTdZbSg&s=10' // <-- Link aggiunto qui
+        ],
+
+        [
+            'id' =>4,
+            'title' => 'Barbie',
+            'director' => 'Greta Gerwig',
+            'genre' => 'Romanzo',
+            'year' => 2023,
+            'img' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHsnTa3-wsxRNlByY_BIrwYLcKO8y0Ipd5VlcjRgRqvg&s=10' // <-- Link aggiunto qui
+        ],
+
+
+    ];
 
     public function index()
     {
-        return view('articles.index', ['articles' => $this->articles]);
+        return view('movie.movie-index', ['movies' => $this->movies]);
     }
 
     public function show($id)
     {
-        foreach ($this->articles as $article) {
-            if ($article['id'] == $id) {
-                return view('articles.show', ['article' => $article]);
+        foreach ($this->movies as $movie) {
+            if ($movie['id'] == $id) {
+                return view('movie.movie-detail', ['movie' => $movie]);
             }
         }
+
+        abort(404);
     }
 }

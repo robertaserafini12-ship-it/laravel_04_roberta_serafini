@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\ArticleController;
 
-// Homepage
-Route::get('/', [ArticleController::class, 'homepage'])->name('homepage');
+// Rotta per La Homepage
+Route::get('/', [PublicController::class, 'homepage'])->name('homepage');
 
-// Indice articoli
-Route::get('/articoli', [ArticleController::class, 'index'])->name('articles.index');
+// Rotta per La Lista dei film
+Route::get('/movies', [ArticleController::class, 'index'])->name('movie.index');
 
-// Dettaglio articolo
-Route::get('/articolo/{id}', [ArticleController::class, 'show'])->name('articles.show');
+// Rotta per il dettaglio del singolo film
+Route::get('/movies/{id}', [ArticleController::class, 'show'])->name('movie.show');
