@@ -5,7 +5,7 @@
             @foreach($movies as $movie)
                 <div class="col-md-3 mb-4">
                     <x-card :movie="$movie" />
-                    <a href="{{ route('movie.show', ['id' => $movie['id']]) }}" class="btn btn-primary mt-2">Dettaglio</a>
+                
                 </div>
             @endforeach
         </div>
