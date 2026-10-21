@@ -1,5 +1,3 @@
-(['movie'])
-
 <div class="card h-100 shadow-sm border-0">
     <img src="{{ $movie['img'] }}" class="card-img-top" alt="{{ $movie['title'] }}">
 
